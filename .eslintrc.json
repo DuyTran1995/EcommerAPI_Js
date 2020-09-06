@@ -1,0 +1,37 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true
+    },
+    "extends": ["eslint:recommended", "prettier"],
+    "plugins": ["prettier"],
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "globals": {
+        "process": true,
+        "global": true
+    },
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ],
+        "quotes": [2, "single"],
+        "semi": [2, "always"],
+        "no-empty-function": "error",
+        "no-extra-semi": "error",
+        "block-spacing": "error",
+        "no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "args": "all"
+            }
+        ],
+        no-useless-escape: "off"
+    }
+}

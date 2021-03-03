@@ -2,15 +2,15 @@ import mongoose from 'mongoose';
 
 /**
  *
- * @param {String} dbconect
- * @param {String} dbhost
- * @param {String} dbname
- * @param {String} dbusername
- * @param {String} dbpassword
+ * @param {String} dbConnect
+ * @param {String} dbHost
+ * @param {String} dbUserName
+ * @param {String} dbPassWord
+ * @param {String} dbName
  */
 
-const ConectDB = (dbconect, dbhost, dbname, dbusername, dbpassword) => {
-    const dbURL = `${dbconect}+${dbhost}://${dbusername}:${dbpassword}@cluster-0.mvj4p.gcp.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+const ConnectDb = (dbConnect, dbHost, dbUserName, dbPassWord, dbName) => {
+    const dbURL = `${dbConnect}+${dbHost}://${dbUserName}:${dbPassWord}@cluster-0.mvj4p.gcp.mongodb.net/${dbName}?retryWrites=true&w=majority`;
     mongoose.connect(
         dbURL,
         {
@@ -19,7 +19,7 @@ const ConectDB = (dbconect, dbhost, dbname, dbusername, dbpassword) => {
             useCreateIndex: true,
         },
         () => {
-            console.log('DB Conect Done !');
+            console.log('DB Connect Done !');
         }
     );
     mongoose.Promise = global.Promise;
@@ -28,4 +28,4 @@ const ConectDB = (dbconect, dbhost, dbname, dbusername, dbpassword) => {
     db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 };
 
-export default ConectDB;
+export default ConnectDb;

@@ -9,7 +9,7 @@ import RootRoute from './routes/rootRouter';
 
 // Import Config
 import ConnectServer from './configs/connectServer';
-import ConectDB from './configs/connectDB';
+import ConnectDb from './configs/connectDB';
 
 dotenv.config();
 
@@ -19,11 +19,11 @@ const server = http.createServer(app);
 const port = process.env.PORT || 3000;
 const hostName = process.env.HOSTNAME || 'localhost';
 
-const dbconect = process.env.DB_CONNECT;
-const dbhost = process.env.DB_HOST;
-const dbname = process.env.DB_NAME;
-const dbusername = process.env.DB_USER;
-const dbpassword = process.env.DB_PASSWORD;
+const dbConnect = process.env.DB_CONNECT;
+const dbHost = process.env.DB_HOST;
+const dbUserName = process.env.DB_USER;
+const dbPassWord = process.env.DB_PASSWORD;
+const dbName = process.env.DB_NAME;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 RootRoute(app);
 
 // Config DB
-ConectDB(dbconect, dbhost, dbname, dbusername, dbpassword);
+ConnectDb(dbConnect, dbHost, dbUserName, dbPassWord, dbName);
 
 // Config Server
 ConnectServer(server, hostName, port);

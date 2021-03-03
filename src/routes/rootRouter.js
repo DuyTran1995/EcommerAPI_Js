@@ -1,7 +1,8 @@
 import express from 'express';
 const router = express.Router();
 
-import { RootController } from '../controllers/rootController';
+import { SignIn } from '../controllers/SignInController';
+import SignInRequestSchema from '../helper/SignIn.joi.helper';
 
 /**
  *
@@ -9,7 +10,7 @@ import { RootController } from '../controllers/rootController';
  */
 
 const initRootRoute = (app) => {
-    router.get('/', RootController);
+    router.get('/sign-in', SignInRequestSchema, SignIn);
 
     return app.use('/api/v1', router);
 };

@@ -40,14 +40,14 @@ const generateToken = (user, secretSignature, tokenLife) => {
  */
 const verifyToken = (token, secretSignature) => {
     return new Promise((resolve, reject) => {
-        jwt.verify(token, secretSignature, (error, deconded) => {
+        jwt.verify(token, secretSignature, (error, decoded) => {
             if (error) {
                 reject(error);
             }
 
-            resolve(deconded);
+            resolve(decoded);
         });
     });
 };
 
-module.exports = { generateToken, verifyToken };
+export { generateToken, verifyToken };

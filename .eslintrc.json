@@ -29,9 +29,9 @@
             "warn",
             {
                 "vars": "all",
-                "args": "all"
+                "args": "all",
+                "argsIgnorePattern": "_"
             }
-        ],
-        no-useless-escape: "off"
+        ]
     }
 }

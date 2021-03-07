@@ -1,4 +1,8 @@
+import { generateToken } from '../helper/jwt.helper';
+import dotenv from 'dotenv';
 import CustomerModel from '../models/CustomerSchema';
+
+dotenv.config();
 
 /**
  *
@@ -6,19 +10,26 @@ import CustomerModel from '../models/CustomerSchema';
  * @param {*} res
  */
 
+const SECRET_JWT = process.env.SECRET_JWT;
+let d = new Date();
+
+/**
+ *
+ * @param {*} req
+ * @param {*} res
+ */
 const SignIn = async (req, res) => {
-    const { name, email, password } = req.body;
+    const getCustomerByEmail = await CustomerModel.getCustomerByEmail(
+        req.body.email
+    );
+    const token = await generateToken(
+        (id = getCustomerByEmail._id),
+        SECRET_JWT,
+        d.setDate(d.getDay() + 3)
+    );
 
-    const newCustomer = new CustomerModel({
-        name,
-        email,
-        password,
-    });
-
-    newCustomer
-        .save()
-        .then((result) => res.send(result))
-        .catch((error) => res.send(error));
+    res.setHeader('Authorization', `Bearer ${token}`);
+    res.status(200).json({ 'Success Token': true });
 };
 
-export { SignIn };
+export default SignIn;

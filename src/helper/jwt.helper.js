@@ -9,20 +9,18 @@ import jwt from 'jsonwebtoken';
 const generateToken = (user, secretSignature, tokenLife) => {
     return new Promise((resolve, reject) => {
         const userToken = {
-            _id: user._id,
-            email: user.email,
-            phone: user.phone,
-            first_name: user.first_name,
-            last_name: user.last_name,
+            user: user,
         };
 
+        const { password, ...newData } = userToken.user;
+
         jwt.sign(
-            { data: userToken },
-            secretSignature,
             {
-                algorithm: 'HS256',
-                expiresIn: tokenLife,
+                data: newData,
+                exp: new Date().getTime(),
+                iat: tokenLife,
             },
+            secretSignature,
             (error, token) => {
                 if (error) {
                     return reject(error);

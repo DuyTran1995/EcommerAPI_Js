@@ -46,6 +46,14 @@ CustomerEntitySchema.statics = {
     },
 };
 
+CustomerEntitySchema.methods.isValidPassword = async function (newPassword) {
+    try {
+        return await bcrypt.compare(newPassword, this.password);
+    } catch (error) {
+        throw new Error(error);
+    }
+};
+
 CustomerEntitySchema.pre('save', async function (next) {
     try {
         const hash = await bcrypt.hash(this.password, 10);

@@ -18,12 +18,17 @@ import { uploadCloudinaryFile } from '../middleware/cloudinary';
 
 const CustomerRoutes = (app) => {
     router.post('/sign-up', validateBody(schemas.SignUpSchema), SignUp);
-    router.post('/sign-in', passport.authenticate('jwt'), SignIn);
+    router.post(
+        '/sign-in',
+        passport.authenticate('local', { session: false }),
+        SignIn
+    );
 
     router.get('/images');
 
     router.post(
         '/upload',
+        passport.authenticate('jwt', { session: false }),
         uploadCloudinaryFile,
         uploadCloudinaryImageController
     );

@@ -22,8 +22,9 @@ const SignIn = async (req, res) => {
     const getCustomerByEmail = await CustomerModel.getCustomerByEmail(
         req.body.email
     );
+
     const token = await generateToken(
-        (id = getCustomerByEmail._id),
+        { id: getCustomerByEmail._id },
         SECRET_JWT,
         d.setDate(d.getDay() + 3)
     );

@@ -1,15 +1,22 @@
 import express from 'express';
 const router = express.Router();
 
-import SignUp from '../controllers/SignUpController';
-import SignIn from '../controllers/SignInController';
-import { uploadCloudinaryImageController } from '../controllers/CloudinaryController';
+import SignUp from '../controllers/Customer/SignUpController';
+import SignIn from '../controllers/Customer/SignInController';
+import UpdateCustomerController from '../controllers/Customer/UpdateCustomerController';
+import {
+    uploadCloudinaryImageController,
+    getCloudinaryImagesController,
+} from '../controllers/Customer/CloudinaryController';
 
-import { validateBody, schemas } from '../helper/JoiSignInRequest';
+import { validateBody, schemas } from '../helper/JoiSignUpRequest';
 
 import passport from 'passport';
 const passportConfig = require('../middleware/passport');
-import { uploadCloudinaryFile } from '../middleware/cloudinary';
+import {
+    uploadCloudinaryFile,
+    getCloudinaryImages,
+} from '../middleware/cloudinary';
 
 /**
  *
@@ -24,18 +31,22 @@ const CustomerRoutes = (app) => {
         SignIn
     );
 
-    router.get('/images');
+    router.patch('/:customerId', UpdateCustomerController);
+
+    router.get(
+        '/images',
+        passport.authenticate('jwt', { session: false }),
+        getCloudinaryImages,
+        getCloudinaryImagesController
+    );
 
     router.post(
         '/upload',
         passport.authenticate('jwt', { session: false }),
         uploadCloudinaryFile,
+        getCloudinaryImages,
         uploadCloudinaryImageController
     );
-
-    router.post('/test', (req, res) => {
-        console.log(console.log('123'));
-    });
 
     return app.use('/api/v1/customer', router);
 };

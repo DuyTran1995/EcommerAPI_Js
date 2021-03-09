@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { Query } from 'mongoose';
 import bcrypt from 'bcrypt';
 
 const CustomerEntitySchema = mongoose.Schema({
@@ -29,23 +29,48 @@ CustomerEntitySchema.statics = {
         return this.find();
     },
 
+    /**
+     *
+     * @param {string} id
+     * @returns {Query}
+     */
     getCustomerById(id) {
         return this.findById(id);
     },
 
+    /**
+     *
+     * @param {object} newCustomer
+     * @returns {Query}
+     */
     createNewCustomer(newCustomer) {
         return this.create(newCustomer);
     },
 
+    /**
+     *
+     * @param {string} email
+     * @returns {Query}
+     */
     getCustomerByEmail(email) {
         return this.findOne({ email });
     },
 
+    /**
+     *
+     * @param {*} id
+     * @returns {Query}
+     */
     deleteCustomerById(id) {
         return this.findOneAndDelete({ _id: id });
     },
 };
 
+/**
+ *
+ * @param {string} newPassword
+ * @returns {Boolean}
+ */
 CustomerEntitySchema.methods.isValidPassword = async function (newPassword) {
     try {
         return await bcrypt.compare(newPassword, this.password);

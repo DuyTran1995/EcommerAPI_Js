@@ -4,7 +4,6 @@ import http from 'http';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import fileUpload from 'express-fileupload';
-import passport from 'passport';
 
 // Import All Router
 import { CustomerRoutes } from './routes';

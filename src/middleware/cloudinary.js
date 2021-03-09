@@ -1,5 +1,11 @@
 import cloudinary from 'cloudinary/lib/v2';
 
+/**
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 const uploadCloudinaryFile = async (req, res, next) => {
     try {
         req.imageUpload = await req.files.avatar;
@@ -12,22 +18,35 @@ const uploadCloudinaryFile = async (req, res, next) => {
     next();
 };
 
-const getCloudinaryImages = () => {
-    cloudinary.search
-        .expression('folder:ecommerce_app')
-        .sort_by('public_id', 'desc')
-        .max_results(30)
-        .execute()
-        .then((result) =>
-            result.resources.map((resource) => resource.public_id)
-        )
-        .then((public_id) => public_id);
+/**
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+const getCloudinaryImages = async (req, res, next) => {
+    try {
+        const getImages = await cloudinary.search
+            .expression('folder:ecommerce_app')
+            .sort_by('public_id', 'desc')
+            .max_results(30)
+            .execute();
+
+        req.getImagesCloudinary = getImages;
+    } catch (error) {
+        res.status(500).json(error);
+    }
+
+    next();
 };
 
-const removeCloudniryImage = (image) => {
-    return cloudinary.uploader.destroy(image, function (result) {
-        console.log(result);
-    });
+/**
+ *
+ * @param {string} image
+ * @returns {any}
+ */
+const removeCloudinaryImage = (image) => {
+    return cloudinary.uploader.destroy(image);
 };
 
-export { uploadCloudinaryFile, getCloudinaryImages, removeCloudniryImage };
+export { uploadCloudinaryFile, getCloudinaryImages, removeCloudinaryImage };

@@ -1,6 +1,6 @@
-import { generateToken } from '../helper/jwt.helper';
+import { generateToken } from '../../helper/jwt.helper';
 import dotenv from 'dotenv';
-import CustomerModel from '../models/CustomerSchema';
+import CustomerModel from '../../models/CustomerSchema';
 
 dotenv.config();
 

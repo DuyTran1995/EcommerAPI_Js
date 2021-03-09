@@ -1,4 +1,4 @@
-import CustomerModel from '../models/CustomerSchema';
+import CustomerModel from '../../models/CustomerSchema';
 
 /**
  *

@@ -15,12 +15,16 @@ const SignUp = async (req, res) => {
             lastName,
             email,
             password,
+            image: req.imageUpload.public_id,
         });
 
         const customerCreated = await CustomerModel.createNewCustomer(
             newCustomer
         );
-        res.status(200).json(customerCreated);
+        res.status(200).json({
+            message: true,
+            data: customerCreated,
+        });
     } catch (error) {
         res.status(500).json(error);
     }

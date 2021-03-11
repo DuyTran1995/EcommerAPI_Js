@@ -6,16 +6,19 @@ import cloudinary from 'cloudinary/lib/v2';
  * @param {*} res
  * @param {*} next
  */
-const uploadCloudinaryFile = async (req, res, next) => {
+const uploadCloudinaryCustomerAvatar = async (req, res, next) => {
     try {
-        req.imageUpload = await req.files.avatar;
+        req.imageUpload = await cloudinary.uploader.upload(
+            req.files.avatar.tempFilePath,
+            { upload_preset: 'avatar' }
+        );
+        next();
     } catch (error) {
-        res.status(404).json({
+        res.status(500).json({
             success: false,
-            message: 'Cannot read property avatar of undefined',
+            message: error,
         });
     }
-    next();
 };
 
 /**
@@ -49,4 +52,8 @@ const removeCloudinaryImage = (image) => {
     return cloudinary.uploader.destroy(image);
 };
 
-export { uploadCloudinaryFile, getCloudinaryImages, removeCloudinaryImage };
+export {
+    uploadCloudinaryCustomerAvatar,
+    getCloudinaryImages,
+    removeCloudinaryImage,
+};

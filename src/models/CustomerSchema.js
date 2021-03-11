@@ -1,4 +1,4 @@
-import mongoose, { Query } from 'mongoose';
+import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 
 const CustomerEntitySchema = mongoose.Schema({
@@ -11,15 +11,18 @@ const CustomerEntitySchema = mongoose.Schema({
         unique: true,
     },
 
-    image: {
-        type: String,
-    },
+    image: String,
 
     password: String,
 
     created_at: {
         type: Date,
         default: Date.now(),
+    },
+
+    updated_at: {
+        type: Date,
+        default: null,
     },
 });
 

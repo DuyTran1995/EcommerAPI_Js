@@ -22,7 +22,7 @@ const CustomerEntitySchema = mongoose.Schema({
 
     updated_at: {
         type: Date,
-        default: null,
+        default: Date.now(),
     },
 });
 

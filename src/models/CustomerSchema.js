@@ -11,8 +11,6 @@ const CustomerEntitySchema = mongoose.Schema({
         unique: true,
     },
 
-    image: String,
-
     password: String,
 
     created_at: {
@@ -28,7 +26,6 @@ const CustomerEntitySchema = mongoose.Schema({
 
 CustomerEntitySchema.statics = {
     getAllCustomer() {
-        console.log(this);
         return this.find();
     },
 

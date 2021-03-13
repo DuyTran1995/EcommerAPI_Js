@@ -27,11 +27,10 @@
         "no-extra-semi": "error",
         "block-spacing": "error",
         "no-unused-vars": [
-            "warn",
+            1,
             {
-                "vars": "all",
-                "args": "all",
-                "argsIgnorePattern": ["_","password"]
+                "ignoreRestSiblings": true,
+                "argsIgnorePattern": "res|next|^err|_"
             }
         ]
     }

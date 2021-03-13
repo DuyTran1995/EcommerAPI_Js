@@ -15,7 +15,6 @@ const SignUp = async (req, res) => {
             lastName,
             email,
             password,
-            image: req.imageUpload.public_id,
         });
 
         const customerCreated = await CustomerModel.createNewCustomer(

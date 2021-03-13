@@ -3,7 +3,7 @@ import express from 'express';
 import http from 'http';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-import fileUpload from 'express-fileupload';
+// import fileUpload from 'express-fileupload';
 
 // Import All Router
 import { CustomerRoutes } from './routes';
@@ -11,7 +11,7 @@ import { CustomerRoutes } from './routes';
 // Import Config
 import ConnectServer from './configs/connectServer';
 import ConnectDb from './configs/connectDB';
-import cloudinaryConfig from './configs/cloudinary';
+// import cloudinaryConfig from './configs/cloudinary';
 
 dotenv.config();
 
@@ -34,12 +34,12 @@ const api_secret = process.env.cloudinary_api_secret;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json({ limit: '50mb' }));
-app.use(
-    fileUpload({
-        limits: { fileSize: 50 * 1024 * 1024 },
-        useTempFiles: true,
-    })
-);
+// app.use(
+//     fileUpload({
+//         limits: { fileSize: 50 * 1024 * 1024 },
+//         useTempFiles: true,
+//     })
+// );
 
 // All Route
 CustomerRoutes.default(app);
@@ -51,4 +51,4 @@ ConnectDb(dbConnect, dbHost, dbUserName, dbPassWord, dbName);
 ConnectServer(server, hostName, port);
 
 // Config Cloudinary
-cloudinaryConfig(cloudinary_name, api_key, api_secret);
+// cloudinaryConfig(cloudinary_name, api_key, api_secret);

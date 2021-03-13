@@ -30,7 +30,6 @@ const UpdateCustomerController = async (req, res) => {
                 lastName,
                 email,
                 password,
-                image: req.imageUpload.public_id,
                 updated_at: new Date(),
             }
         );

@@ -8,7 +8,7 @@ import { removeCloudinaryImage } from '../../middleware/cloudinary';
  * @param {*} res
  */
 
-const UpdateCustomerController = async (req, res) => {
+const UpdateCustomer = async (req, res) => {
     const { firstName, lastName, email, password } = req.body;
     const { customerId } = req.params;
 
@@ -41,11 +41,11 @@ const UpdateCustomerController = async (req, res) => {
             message: 'Customer updated Done!',
         });
     } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
             error: error,
         });
     }
 };
 
-export default UpdateCustomerController;
+export default UpdateCustomer;

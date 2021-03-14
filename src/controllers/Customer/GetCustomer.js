@@ -21,9 +21,9 @@ const GetCustomer = async (req, res) => {
             data: getAllCustomer,
         });
     } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
-            message: error,
+            error: error,
         });
     }
 };

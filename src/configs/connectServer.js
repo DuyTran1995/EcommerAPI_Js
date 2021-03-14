@@ -1,6 +1,6 @@
 /**
  *
- * @param {String} server
+ * @param {Server} server
  * @param {String} protocolUrl
  * @param {String} port
  */

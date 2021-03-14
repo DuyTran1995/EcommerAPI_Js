@@ -1,23 +1,13 @@
 import express from 'express';
-const router = express.Router();
+import { CustomerController } from '../controllers';
 
-import SignUp from '../controllers/Customer/SignUpController';
-import SignIn from '../controllers/Customer/SignInController';
-import UpdateCustomerController from '../controllers/Customer/UpdateCustomerController';
-import DeleteCustomerController from '../controllers/Customer/DeleteCustomerController';
-import GetCustomer from '../controllers/Customer/GetCustomer';
-
-import { validateBody, schemas } from '../helper/JoiSignUpRequest';
+import { schemas, validateBody } from '../helper/JoiSignUpRequest';
 
 import passport from 'passport';
+const router = express.Router();
+
 // eslint-disable-next-line no-unused-vars
 const passportConfig = require('../middleware/passport');
-
-// import {
-//     uploadCloudinaryCustomerAvatar,
-//     getCloudinaryImages,
-// } from '../middleware/cloudinary';
-import GetCustomerWithId from '../controllers/Customer/GetCustomerById';
 
 /**
  *
@@ -25,28 +15,32 @@ import GetCustomerWithId from '../controllers/Customer/GetCustomerById';
  */
 
 const CustomerRoutes = (app) => {
-    router.get('/', GetCustomer);
+    router.get('/', CustomerController.GetCustomer);
 
-    router.get('/:customerId', GetCustomerWithId);
+    router.get('/:customerId', CustomerController.GetCustomerWithId);
 
-    router.post('/sign-up', validateBody(schemas.SignUpSchema), SignUp);
+    router.post(
+        '/sign-up',
+        validateBody(schemas.SignUpSchema),
+        CustomerController.SignUp
+    );
 
     router.post(
         '/sign-in',
         passport.authenticate('local', { session: false }),
-        SignIn
+        CustomerController.SignIn
     );
 
     router.patch(
         '/:customerId',
         passport.authenticate('jwt', { session: false }),
-        UpdateCustomerController
+        CustomerController.UpdateCustomer
     );
 
     router.delete(
         '/:customerId',
         passport.authenticate('jwt', { session: false }),
-        DeleteCustomerController
+        CustomerController.DeleteCustomer
     );
 
     return app.use('/api/v1/customer', router);

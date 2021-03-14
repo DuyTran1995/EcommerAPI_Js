@@ -5,7 +5,7 @@ import CustomerModel from '../../models/CustomerSchema';
  * @param {*} req
  * @param {*} res
  */
-const GetCustomer = async (req, res) => {
+const DeleteCustomer = async (req, res) => {
     const { customerId } = req.params;
     try {
         if (!customerId) {
@@ -31,11 +31,11 @@ const GetCustomer = async (req, res) => {
             data: `Delete customer with ID: ${GetCustomerById._id} Success`,
         });
     } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
-            message: error,
+            error: error,
         });
     }
 };
 
-export default GetCustomer;
+export default DeleteCustomer;

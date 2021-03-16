@@ -10,6 +10,8 @@ const router = express.Router();
 
 const ProductRoutes = (app) => {
     router.get('/', CategoryController.getAllCategories);
+    router.get('/:categoryId', CategoryController.getCategoryById);
+
     router.post('/', CategoryController.createNewCategory);
     return app.use('/api/v1/category', router);
 };

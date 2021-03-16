@@ -31,10 +31,7 @@ const DeleteCustomer = async (req, res) => {
             data: `Delete customer with ID: ${GetCustomerById._id} Success`,
         });
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            error: error,
-        });
+        res.status(500).json(error.toString());
     }
 };
 

@@ -14,10 +14,7 @@ const createNewCategory = async (req, res) => {
             data: newCategory,
         });
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            error: error,
-        });
+        res.status(500).json(error.toString());
     }
 };
 

@@ -41,10 +41,7 @@ const UpdateCustomer = async (req, res) => {
             message: 'Customer updated Done!',
         });
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            error: error,
-        });
+        res.status(500).json(error.toString());
     }
 };
 

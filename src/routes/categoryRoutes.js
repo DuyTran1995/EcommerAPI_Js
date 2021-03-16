@@ -9,6 +9,7 @@ const router = express.Router();
  */
 
 const ProductRoutes = (app) => {
+    router.get('/', CategoryController.getAllCategories);
     router.post('/', CategoryController.createNewCategory);
     return app.use('/api/v1/category', router);
 };

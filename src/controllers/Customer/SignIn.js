@@ -19,18 +19,26 @@ let d = new Date();
  * @param {*} res
  */
 const SignIn = async (req, res) => {
-    const getCustomerByEmail = await CustomerModel.getCustomerByEmail(
-        req.body.email
-    );
+    try {
+        const getCustomerByEmail = await CustomerModel.getCustomerByEmail(
+            req.body.email
+        );
 
-    const token = await generateToken(
-        { id: getCustomerByEmail._id },
-        SECRET_JWT,
-        d.setDate(d.getDay() + 3)
-    );
+        if (!getCustomerByEmail) {
+            res.status(404).json('Customer is not found');
+        }
 
-    res.setHeader('Authorization', `Bearer ${token}`);
-    res.status(200).json({ 'Success Token': true });
+        const token = await generateToken(
+            { id: getCustomerByEmail._id },
+            SECRET_JWT,
+            d.setDate(d.getDay() + 3)
+        );
+
+        res.setHeader('Authorization', `Bearer ${token}`);
+        res.status(200).json({ 'Success Token': true });
+    } catch (error) {
+        res.status(500).json(error.toString());
+    }
 };
 
 export default SignIn;

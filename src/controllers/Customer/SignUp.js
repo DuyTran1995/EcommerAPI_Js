@@ -25,10 +25,7 @@ const SignUp = async (req, res) => {
             data: customerCreated,
         });
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            error: error,
-        });
+        res.status(500).json(error.toString());
     }
 };
 

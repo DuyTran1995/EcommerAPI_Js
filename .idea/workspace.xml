@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce3fff9e-ba1a-411a-9f15-54de51a2bbfb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/configs/connectServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/configs/connectServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/Customer/DeleteCustomerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Customer/DeleteCustomer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Category/createNewCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Category/createNewCategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Category/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Category/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Customer/DeleteCustomer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Customer/DeleteCustomer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/Customer/GetCustomer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Customer/GetCustomer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/Customer/GetCustomerById.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Customer/GetCustomerById.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/Customer/SignInController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Customer/SignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/Customer/SignUpController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Customer/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/Customer/UpdateCustomerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Customer/UpdateCustomer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/ProductSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ProductSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/customerRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/customerRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Customer/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Customer/SignIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Customer/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Customer/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Customer/UpdateCustomer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Customer/UpdateCustomer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Product/createNewProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Product/createNewProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/cloudinary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/cloudinary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/categoryRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/categoryRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +45,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="14.16.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.34" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../film-api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -94,7 +94,9 @@
       <workItem from="1615692875864" duration="122000" />
       <workItem from="1615692999248" duration="6371000" />
       <workItem from="1615734744355" duration="36000" />
-      <workItem from="1615734782237" duration="6030000" />
+      <workItem from="1615734782237" duration="6246000" />
+      <workItem from="1615815990749" duration="39000" />
+      <workItem from="1615880807462" duration="1774000" />
     </task>
     <servers />
   </component>

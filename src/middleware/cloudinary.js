@@ -14,10 +14,7 @@ const uploadCloudinaryCustomerAvatar = async (req, res, next) => {
         );
         next();
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: error,
-        });
+        res.status(500).send(error);
     }
 };
 
@@ -37,7 +34,7 @@ const getCloudinaryImages = async (req, res, next) => {
 
         req.getImagesCloudinary = getImages;
     } catch (error) {
-        res.status(500).json(error);
+        res.status(500).send(error);
     }
 
     next();

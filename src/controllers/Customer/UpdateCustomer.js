@@ -1,6 +1,6 @@
 import CustomerModel from '../../models/CustomerSchema';
 
-import { removeCloudinaryImage } from '../../middleware/cloudinary';
+// import { removeCloudinaryImage } from '../../middleware/cloudinary';
 
 /**
  *
@@ -21,7 +21,7 @@ const UpdateCustomer = async (req, res) => {
                 message: 'Not found Customer',
             });
 
-        removeCloudinaryImage(getImageById.image);
+        // removeCloudinaryImage(getImageById.image);
 
         const updateCustomer = await CustomerModel.findOneAndUpdate(
             { _id: customerId },

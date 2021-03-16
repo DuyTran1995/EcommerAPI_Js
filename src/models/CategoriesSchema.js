@@ -2,6 +2,14 @@ import mongoose from 'mongoose';
 
 const CategoriesSchema = mongoose.Schema({
     name: String,
+    created_at: {
+        type: Date,
+        default: Date.now(),
+    },
+    updated_at: {
+        type: Date,
+        default: Date.now(),
+    },
     productsId: [
         {
             type: mongoose.Schema.Types.ObjectId,

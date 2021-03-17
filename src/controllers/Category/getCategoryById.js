@@ -9,7 +9,9 @@ const getCategoryById = async (req, res) => {
     const { categoryId } = req.params;
 
     try {
-        const getCategory = await CategoriesModel.getCategoryById(categoryId);
+        const getCategory = await CategoriesModel.getCategoryById(
+            categoryId
+        ).populate('productsId');
 
         if (!getCategory) {
             res.status(404).json({

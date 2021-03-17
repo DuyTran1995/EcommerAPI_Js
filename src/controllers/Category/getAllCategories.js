@@ -7,7 +7,9 @@ import CategoriesModel from '../../models/CategoriesSchema';
  */
 const getAllCategories = async (req, res) => {
     try {
-        const getCategories = await CategoriesModel.getAllCategories();
+        const getCategories = await CategoriesModel.getAllCategories().populate(
+            'productsId'
+        );
 
         if (!getCategories) {
             res.status(404).json({

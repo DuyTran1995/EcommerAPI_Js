@@ -10,6 +10,10 @@ const router = express.Router();
 
 const ProductRoutes = (app) => {
     router.post('/:categoryId', ProductController.createNewProduct);
+    router.get('/', ProductController.getProducts);
+    router.get('/:productId', ProductController.getProductById);
+    router.patch('/:productSku', ProductController.updateProduct);
+    router.delete('/:productSku', ProductController.deleteProduct);
     return app.use('/api/v1/product', router);
 };
 

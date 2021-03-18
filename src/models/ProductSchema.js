@@ -42,20 +42,11 @@ ProductEntitySchema.statics = {
 
     /**
      *
-     * @param {string} sku
-     * @returns {Query}
-     */
-    getProductBySku(sku) {
-        return this.findOne({ sku });
-    },
-
-    /**
-     *
      * @param {*} sku
      * @returns {Query}
      */
     deleteProductBySku(sku) {
-        return this.findOneAndDelete({ _sku: sku });
+        return this.findOneAndDelete({ _id: sku });
     },
 };
 
